@@ -3,11 +3,21 @@ import { CRTResult } from './crt';
 import { MicroTremorResult } from './micro-tremor';
 import { RPPGResult } from './rppg';
 
+export interface TouchPressureResult {
+  score: number;
+  llr: number;
+  pressureVariance: number;
+  naturalPattern: boolean;
+  suspiciousPatterns: string[];
+  processingTimeMs: number;
+}
+
 export interface TrustScoreInput {
   vff: VFFResult;
   crt: CRTResult;
   microTremor: MicroTremorResult | null;
   rppg: RPPGResult | null;
+  touchPressure: TouchPressureResult | null;
   deviceTier: number;
   riskLevel: number;
   isRooted: boolean;
@@ -39,7 +49,7 @@ const SIGNAL_WEIGHTS: Record<string, number[]> = {
   ha:           [0.20, 0.15, 0.10],
   microTremor:  [0.00, 0.20, 0.15],
   rppg:         [0.00, 0.15, 0.20],
-  touchPressure:[0.00, 0.00, 0.10],
+  touchPressure:[0.10, 0.10, 0.10],
   microSaccade: [0.00, 0.00, 0.10],
 };
 
@@ -172,6 +182,30 @@ export function computeTrustScore(input: TrustScoreInput): TrustScoreResult {
   } else {
     breakdown.push({
       signal: 'rppg',
+      score: 0,
+      weight: 0,
+      llr: 0,
+      contribution: 0,
+      available: false,
+    });
+  }
+
+  if (input.touchPressure && input.touchPressure.score > 0) {
+    const touchWeight = getWeight('touchPressure', tier);
+    breakdown.push({
+      signal: 'touchPressure',
+      score: input.touchPressure.score,
+      weight: touchWeight,
+      llr: input.touchPressure.llr,
+      contribution: touchWeight * input.touchPressure.llr,
+      available: true,
+    });
+    if (input.touchPressure.suspiciousPatterns.length > 0 && input.touchPressure.score < 0.7) {
+      flagReasons.push(...input.touchPressure.suspiciousPatterns);
+    }
+  } else {
+    breakdown.push({
+      signal: 'touchPressure',
       score: 0,
       weight: 0,
       llr: 0,

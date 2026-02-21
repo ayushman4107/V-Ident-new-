@@ -214,6 +214,9 @@ export default function VerificationScreen() {
                     <Text style={[styles.riskButtonSub, riskLevel === level && styles.riskButtonSubActive]}>
                       {level === 1 ? 'Low' : level === 2 ? 'Medium' : 'High'}
                     </Text>
+                    <Text style={[styles.riskButtonAmount, riskLevel === level && styles.riskButtonSubActive]}>
+                      {level === 1 ? '< 5,000' : level === 2 ? '5K - 50K' : '50K+'}
+                    </Text>
                   </Pressable>
                 ))}
               </View>
@@ -471,6 +474,12 @@ const styles = StyleSheet.create({
   },
   riskButtonSubActive: {
     color: Colors.textSecondary,
+  },
+  riskButtonAmount: {
+    color: Colors.textMuted,
+    fontSize: 11,
+    fontFamily: 'Inter_400Regular',
+    marginTop: 2,
   },
   cameraPhase: {
     flex: 1,

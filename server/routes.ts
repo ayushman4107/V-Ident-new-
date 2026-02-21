@@ -254,12 +254,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       const availableSignals = [];
-      availableSignals.push('VFF', 'CRT', 'HA');
+      availableSignals.push('VFF', 'CRT', 'HA', 'Touch Pressure');
       if (tier >= 2) {
         availableSignals.push('Micro-tremor', 'rPPG');
       }
       if (tier >= 3) {
-        availableSignals.push('Touch Pressure', 'Micro-saccade');
+        availableSignals.push('Micro-saccade');
       }
 
       res.json({

@@ -113,7 +113,7 @@ export default function DashboardScreen() {
               <SignalBadge name="HA" available icon="shield-checkmark-outline" />
               <SignalBadge name="IMU" available={user.deviceTier >= 2} icon="hand-left-outline" />
               <SignalBadge name="rPPG" available={user.deviceTier >= 2} icon="heart-outline" />
-              <SignalBadge name="Touch" available={user.deviceTier >= 3} icon="finger-print-outline" />
+              <SignalBadge name="Touch" available icon="finger-print-outline" />
               <SignalBadge name="Saccade" available={user.deviceTier >= 3} icon="eye-outline" />
             </View>
           </View>

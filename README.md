@@ -3,9 +3,18 @@
 
 > **Built by Team PsychoBytes · IIIT Pune · February 2026**
 
-V-Ident is a mobile identity verification engine that detects whether a user is a live, unique human — without storing raw biometrics, without blockchain overhead, and without locking out budget-device users. It dynamically selects the optimal combination of physiological signals per device, achieving **< 3% human review rate** and **< ₹1 cost per verification**.
+V-Ident is a mobile app identity verification engine that detects whether a user is a live, unique human — without storing raw biometrics, without blockchain overhead, and without locking out budget-device users. It dynamically selects the optimal combination of physiological signals per device, achieving **< 3% human review rate** and **< ₹1 cost per verification**.
 
 ---
+
+## Demo Video
+
+🎥 **[Watch the Demo Video](https://www.youtube.com/shorts/lobkX4lt4UE)**
+
+See V-Ident in action and explore how the app performs in real-time.
+
+---
+
 
 ## V-Ident ML Model
 

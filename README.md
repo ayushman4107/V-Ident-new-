@@ -7,6 +7,13 @@ V-Ident is a mobile identity verification engine that detects whether a user is 
 
 ---
 
+## V-Ident ML Model
+
+The machine learning model powering this project is maintained in a separate repository.
+
+🔗 **[View the V-Ident ML Model](https://github.com/YashNarayan23/v-ident-app-model)**
+
+---
 ## Table of Contents
 
 - [Core Design Philosophy](#core-design-philosophy)

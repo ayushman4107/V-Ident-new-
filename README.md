@@ -23,6 +23,21 @@ The machine learning model powering this project is maintained in a separate rep
 🔗 **[View the V-Ident ML Model](https://github.com/YashNarayan23/v-ident-app-model)**
 
 ---
+## Tech Stack
+
+- **Core**: React Native & Expo (Managed Workflow)
+- **Language**: TypeScript (Strict Mode)
+- **Navigation**: Expo Router (File-based routing)
+- **State Management**: Zustand
+- **Animations**: React Native Reanimated 3
+- **Graphics**: React Native SVG & Expo Linear Gradient
+- **Sensors**: Expo Camera & Expo Sensors
+- **Storage**: React Native MMKV
+- **Camera and Video Processing**: react-native-vision-camera
+- **Machine Learning and rPPG**: react-native-fast-tflite
+- **Zero-Knowledge Proofs (ZKP)**: snarkjs
+
+---
 ## Table of Contents
 
 - [Core Design Philosophy](#core-design-philosophy)
